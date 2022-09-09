@@ -21,7 +21,7 @@ export default function RegisterForm() {
       await schema.validate(data, {
         abortEarly: false,
       })
-      const user = await auth.register(data.email,data.password,data.name)
+      const user = await auth.register(data.name,data.email,data.password)
       navigate('/', {
         state:{
           type:'success',
