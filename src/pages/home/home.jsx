@@ -10,18 +10,15 @@ import authService from '../../services/auth.service';
  
 function Home() {  
   const [profile, setProfile] = useState({name:null})
-  console.log(profile)
-
   const navigate = useNavigate()
   useEffect(()=> {
     authService.refresh().then((response)=>{
-      sessionStorage.setItem('token', response.data.token)      
-     
+      sessionStorage.setItem('token', response.data.token)  
     }).catch(()=>{
       navigate('/', {
         state:{
           type:'danger',
-          message:'token expirado, faça login novamente'
+          message:'Token expirado, faça login novamente.'
         }
       })
     }).then(()=>authService.profile())

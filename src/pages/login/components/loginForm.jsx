@@ -14,8 +14,8 @@ export default function LoginForm() {
     console.log(data)
     try {
       const schema = yup.object({
-        email: yup.string().email().required(),
-        password: yup.string().required(),
+        email: yup.string().email().required("O campo email é obrigatório"),
+        password: yup.string().required("O campo senha é obrigatório"),
       })
       await schema.validate(data, {
         abortEarly: false,
@@ -50,7 +50,7 @@ export default function LoginForm() {
 
   return (
     <div className="">
-      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
+      <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Entrar</p>
       <Form className="mx-1 mx-md-4" ref={formRef} onSubmit={handleSubmit}>
 
         <div className="d-flex flex-row align-items-center mb-4">
@@ -64,13 +64,13 @@ export default function LoginForm() {
         <div className="d-flex flex-row align-items-center mb-4">
           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
           <div className="form-outline flex-fill mb-0">
-            <label className="form-label" htmlFor="password">Password</label>
+            <label className="form-label" htmlFor="password">Senha</label>
             <Input type="password" name="password" className="form-control" />
           </div>
         </div>
 
         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-          <button type="submit" className="btn btn-primary btn-md">Sing in</button>
+          <button type="submit" className="btn btn-primary btn-md">Entrar</button>
         </div>
 
       </Form>

@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const api = axios.create({
   transformRequest: [...axios.defaults.transformRequest],
-  baseURL:process.env.REACT_APP_API_STAR
+  baseURL:process.env.REACT_APP_API_URL,
+
 });
 api.interceptors.request.use((config)=>{
   const token = sessionStorage.getItem('token')
@@ -20,10 +21,8 @@ api.interceptors.request.use((config)=>{
   return config
 });
 
-
-function listAll() {
-    return api.get('/people')
+function listAll(page=1) {
+    return api.get('/starwars',{params: {page}})
 }
 
-
-export default { listAll }
+export default { listAll };

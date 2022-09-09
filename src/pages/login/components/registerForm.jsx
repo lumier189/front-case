@@ -13,10 +13,10 @@ export default function RegisterForm() {
    
     try {
       const schema = yup.object({    
-        name: yup.string().required(), 
-        email: yup.string().email().required(),
-        password: yup.string().required(),      
-        confirmPassword: yup.string().required().oneOf([yup.ref("password")]),
+        name: yup.string().required('O nome é obrigatório.'), 
+        email: yup.string().email().required('O email é obrigatório.'),
+        password: yup.string().required('A senha é obrigatória.'),      
+        confirmPassword: yup.string().required('As senhas devem ser iguais.').oneOf([yup.ref("password")]),
       })
       await schema.validate(data, {
         abortEarly: false,
@@ -25,7 +25,7 @@ export default function RegisterForm() {
       navigate('/', {
         state:{
           type:'success',
-          message:'cadastro realizado com sucesso'
+          message:'Cadastro realizado com sucesso'
         }
       })
 
@@ -49,14 +49,14 @@ export default function RegisterForm() {
         <div className="d-flex flex-row align-items-center mb-4">
           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
           <div className="form-outline flex-fill mb-0">
-            <label className="form-label">Your Name</label>
+            <label className="form-label">Nome</label>
             <Input type="text" name="name" className="form-control" />
           </div>
         </div>
         <div className="d-flex flex-row align-items-center mb-4">
           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
           <div className="form-outline flex-fill mb-0">
-            <label className="form-label">Your Email</label>
+            <label className="form-label">Email</label>
             <Input type="text" name="email" className="form-control" />
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function RegisterForm() {
         <div className="d-flex flex-row align-items-center mb-4">
           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
           <div className="form-outline flex-fill mb-0">
-            <label className="form-label" >Password</label>
+            <label className="form-label" >Senha</label>
             <Input type="password" name="password"  className="form-control" />
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function RegisterForm() {
         <div className="d-flex flex-row align-items-center mb-4">
           <i className="fas fa-key fa-lg me-3 fa-fw"></i>
           <div className="form-outline flex-fill mb-0">
-            <label className="form-label" >Repeat your password</label>
+            <label className="form-label" >Confirme sua senha</label>
             <Input type="password"  name="confirmPassword" className="form-control" />
           </div>
         </div>

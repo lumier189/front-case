@@ -17,7 +17,7 @@ const Todo = () => {
       navigate('/', {
         state: {
           type: 'danger',
-          message: 'token expirado, faça login novamente'
+          message: 'Token expirado, faça login novamente'
         }
       })
     })
@@ -49,9 +49,9 @@ const Todo = () => {
   return (
     <Template>
       <div className="container py-5" >
-        <h1 className=''>Todo list</h1>
+        <h1 className=''>Lista to-do</h1>
         <List tasks={tasks} onDelete={handleDelete} onDone={handleDone} ></List>
-        <h2 className='mt-5'>New task</h2>
+        <h2 className='mt-5'>Nova tarefa</h2>
         <TodoForm onSubmit={handleSubmit} />
       </div>
     </Template>

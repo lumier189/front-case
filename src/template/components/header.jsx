@@ -5,6 +5,8 @@ const Header = () => {
   function logout(){
     sessionStorage.clear()
   }
+
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -12,16 +14,16 @@ const Header = () => {
           <div className="row w-100">
           <ul className="navbar-nav ">
             <li className="nav-item">
-              <Link className="nav-link " to="/home"> home </Link>
+              <Link className="nav-link " to="/home"> Inicio </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/todo"> Todo </Link>
+              <Link className="nav-link " to="/todo"> To-do </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link " to="/service"> service </Link>
+              <Link className="nav-link " to="/service"> Star Wars</Link>
             </li>
-            { <li className="nav-item">
-              <Link className="nav-link " to="/home"> home </Link>
+            { sessionStorage.getItem("token") && <li className="nav-item">
+              <Link className="nav-link" onClick={(e)=>{logout()}} to="/"> Sair </Link>
             </li>}
           </ul>
             </div> 

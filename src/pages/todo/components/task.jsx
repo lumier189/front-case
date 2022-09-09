@@ -5,7 +5,7 @@ function Task({onDelete, onEdit, onDone, task}) {
         <div key={task.id} className="accordion-item"  >
           <h2 className="accordion-header" id={`title-${task.id}`} >
             <button className="accordion-button collapsed d-flex justify" type="button" data-bs-toggle="collapse" data-bs-target={`#task-${task.id}`} >
-            {task.title} {task.isDone ? <b className="text-success float-end"> &nbsp; Done!</b> : ''}   
+            {task.title} {task.isDone ? <b className="text-success float-end"> &nbsp; Feito!</b> : ''}   
              
             </button>
           </h2>
